@@ -52,6 +52,10 @@ extends BaseRelation with TableScan with PrunedScan {
             case Cell.CELL_TYPE_NUMERIC => cell.getNumericCellValue.toString
             case Cell.CELL_TYPE_BOOLEAN => cell.getBooleanCellValue.toString
             case Cell.CELL_TYPE_STRING => cell.getStringCellValue.toString
+            case Cell.CELL_TYPE_FORMULA => {
+                val formatter = new DataFormatter()
+                formatter.formatCellValue(cell)
+              }
             case Cell.CELL_TYPE_BLANK => null
             case t => throw new RuntimeException(s"Unknown cell type $t for $cell")
           }

@@ -66,7 +66,8 @@ private[excel] object InferSchema {
   val SPARK_TYPE_FOR_EXCEL_CELL_TYPE = Map(
     Cell.CELL_TYPE_STRING -> StringType,
     Cell.CELL_TYPE_BOOLEAN -> BooleanType,
-    Cell.CELL_TYPE_NUMERIC -> DoubleType
+    Cell.CELL_TYPE_NUMERIC -> DoubleType,
+    Cell.CELL_TYPE_FORMULA -> StringType
   )
   /**
    * Infer type of string field. Given known type Double, and a string "1", there is no
